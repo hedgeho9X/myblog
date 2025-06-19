@@ -27,20 +27,20 @@ import config from './src/site.config.ts'
 // https://astro.build/config
 export default defineConfig({
   // Top-Level Options
-  site: 'https://astro-pure.js.org',
+  // site: 'https://hedgeho9.cn',
   // base: '/docs',
   trailingSlash: 'never',
 
   // Adapter
   // https://docs.astro.build/en/guides/deploy/
   // 1. Vercel (serverless)
-  adapter: vercel(),
-  output: 'server',
+  // adapter: vercel(),
+  // output: 'server',
   // 2. Vercel (static)
   // adapter: vercelStatic(),
   // 3. Local (standalone)
-  // adapter: node({ mode: 'standalone' }),
-  // output: 'server',
+  output: 'static', // 确保是静态输出
+  site: 'https://hedgeho9.cn', // 替换
   // ---
 
   image: {
