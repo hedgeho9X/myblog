@@ -14,7 +14,6 @@ heroImage: { src: './thanos-dd-single-image-004a.jpg', color: '#88E5E4' }
 体验差已久，在考完试后的一个下午，开始了刺猬博客的大迁移～
 ## TKS->感谢该主题开源作者～
 > **Thanks to contributors.**
-123
 ![contributors](./contributors.png)
 
 
