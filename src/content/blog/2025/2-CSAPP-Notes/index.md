@@ -9,4 +9,5 @@ language: 'chinese'
 heroImage: { src: './thumbnail.jpg', color: '#dd9ca0' }
 ---
 ## just a beginning.
+test..
 
