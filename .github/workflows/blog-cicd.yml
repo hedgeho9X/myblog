@@ -1,4 +1,4 @@
-name: Front-CI
+name: Front-CI # 工作流名称，保持不变，或者改为 Front-End CI/CD
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  front-ci:
+  front-ci: # CI Job：运行代码检查、测试等，确保代码质量
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -18,27 +18,29 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 23
+          node-version: 23 # 你的 Node.js 版本
 
       - name: Install dependencies
-        run:  npm install
+        run: npm install # 安装依赖
 
 
-  front-cd:
+
+  front-cd: # CD Job：在 CI 通过后进行部署
     runs-on: ubuntu-latest
-    needs: front-ci
+    needs: front-ci # 确保 front-ci Job 成功后才运行此 Job
     if: github.event_name == 'push'
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # 部署 Job 也需要拉取代码，因为它是独立运行的环境
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 23
+          node-version: 23 # 与上面保持一致
 
-      - name: Install dependencies
-        run:  npm install
+      - name: Install dependencies # 再次安装依赖，确保构建环境完整 (也可以考虑使用 artifacts 传递 node_modules 或 dist 文件，但对于小型项目直接重新安装更简单)
+        run: npm install
 
       - name: setup blog 
         run:  npm run build
